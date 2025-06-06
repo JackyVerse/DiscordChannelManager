@@ -5,15 +5,15 @@ module.exports = (app, client) => {
     const { userId, channelId, roleId } = req.body;
     try {
       await addToChannel(client, channelId, userId, roleId);
-      // Gán role nếu có roleId
+      // Set role for user if roleId is provided
       if (roleId) {
         const guild = await client.guilds.fetch(process.env.GUILD_ID);
         const member = await guild.members.fetch(userId);
         try {
           await member.roles.add(roleId);
-          console.log(`✅ Gán role ${roleId} cho user ${userId}`);
+          console.log(`✅ Set role ${roleId} for user ${userId}`);
         } catch (err) {
-          console.error(`❌ Không thể gán role:`, err);
+          console.error(`❌ Failed to set role:`, err);
         }
       }
       res.status(200).json({ success: true, message: "User added successfully!" });
@@ -28,7 +28,7 @@ module.exports = (app, client) => {
       const channels = await guild.channels.fetch();
       console.log("channels: ", channels);
   
-      // Lọc ra chỉ các channel text/voice có thể dùng
+      // Filter out only text/voice channels that can be used
       const filtered = [];
       channels.forEach((channel) => {
         if (channel.type === 0 || channel.type === 2) { // 0: text, 2: voice
@@ -53,7 +53,7 @@ module.exports = (app, client) => {
 
       const filtered = [];
       roles.forEach((role) => {
-        // Bỏ @everyone và bot roles nếu cần
+        // Remove @everyone and bot roles if needed
         if (!role.managed && role.name !== '@everyone') {
           filtered.push({ id: role.id, name: role.name });
         }
@@ -72,7 +72,7 @@ module.exports = (app, client) => {
 
       const filtered = [];
       members.forEach((member) => {
-        // Bỏ bot nếu cần
+        // Remove bot if needed
         if (!member.user.bot) {
           filtered.push({ 
             id: member.id, 

@@ -1,5 +1,5 @@
 module.exports = (client) => {
     console.log(`✅ Logged in as ${client.user.tag}`);
-    // Có thể gọi hàm đăng ký lệnh slash nếu muốn
+    // You can call the slash command registration function if you want
 
   };

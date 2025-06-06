@@ -12,8 +12,8 @@ module.exports = async function addToChannel(client, channelId, userId) {
       Connect: true
     });
 
-    console.log(`✅ Đã thêm ${member.user.tag} vào channel ${channel.name}`);
+    console.log(`✅ Added ${member.user.tag} to channel ${channel.name}`);
   } catch (err) {
-    console.error('❌ Lỗi khi thêm user vào channel:', err);
+    console.error('❌ Error adding user to channel:', err);
   }
 };
