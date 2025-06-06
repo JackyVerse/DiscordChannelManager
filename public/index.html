@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Channel Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Birds -->
+  <div class="bird">🦅</div>
+  <div class="bird">🦜</div>
+  <div class="bird">🦚</div>
+
+  <!-- Gamepads -->
+  <div class="gamepad">🎮</div>
+  <div class="gamepad">🎮</div>
+  <div class="gamepad">🎮</div>
+  <div class="gamepad">🎮</div>
+  <div class="gamepad">🎮</div>
+
+  <div class="container">
+    <h1>Discord Channel Manager</h1>
+    <form id="addForm">
+      <div class="form-group">
+        <label for="userSearch">Tìm kiếm thành viên:</label>
+        <input type="text" id="userSearch" placeholder="Nhập tên hoặc tag...">
+      </div>
+      <div class="form-group">
+        <label for="userId">Chọn thành viên:</label>
+        <select id="userId" required></select>
+      </div>
+      <div class="form-group">
+        <label for="channelId">Chọn kênh:</label>
+        <select id="channelId" required></select>
+      </div>
+      <div class="form-group">
+        <label for="roleId">Chọn vai trò:</label>
+        <select id="roleId" required></select>
+      </div>
+      <button type="submit">Thêm thành viên vào kênh</button>
+    </form>
+
+    <p id="result"></p>
+
+    <footer>Powered by Stream Studio Admin Tools</footer>
+  </div>
+
+  <!-- Popup Error -->
+  <div class="popup" id="errorPopup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>Lỗi</h3>
+        <button class="popup-close">&times;</button>
+      </div>
+      <div class="popup-body">
+        <p id="errorMessage"></p>
+      </div>
+      <div class="popup-footer">
+        <button class="popup-button">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Success -->
+  <div class="popup" id="successPopup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>Thành công</h3>
+        <button class="popup-close">&times;</button>
+      </div>
+      <div class="popup-body">
+        <p id="successMessage"></p>
+      </div>
+      <div class="popup-footer">
+        <button class="popup-button">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
